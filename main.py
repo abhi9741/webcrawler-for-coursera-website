@@ -33,14 +33,21 @@ def degrees(s) :
 def courses(s1,d) :
 
         ss1=s1.find('div',"rc-SearchResults bt3-col-xs-9")
-        sss=ss1.findAll('div')
+        try :
+            sss=ss1.findAll('div')
+        except :
+            print(str(s1)+'\n')
+            print(str(ss1)+'\n')
+            return
+            #print(str(sss)+'\n')
         #print(str(len(sss))+'\n')
         del(sss[0:9])
         del(sss[0])
         d=int(d)*7
         #print(str(d)+'\n')
-        del(sss[0:d])
-        del(sss[0])
+        #del(sss[0:d])
+        #del(sss[0])
+        #del(sss[0])
         del(sss[-1])
         del(sss[-1])
         del(sss[-1])
@@ -67,7 +74,7 @@ def courses(s1,d) :
 
 
 
-query = str(input("Enter course name "))
+query = " "
     #query.replace(' ','-')
 with open(query+'course details.csv','w') as outputfile :
     w =csv.writer(outputfile)
@@ -79,22 +86,25 @@ with open(query+'course details.csv','w') as outputfile :
     url = urlg(query,1)
     print(url)
     r=requests.get(url)
-    print('requests done')
+    #print('requests done')
     s=BeautifulSoup(r.text,'lxml')
-    print("BeautifulSoup done ")
+    #print("BeautifulSoup done ")
     lp=lastpage(s)
     print("last page = "+str(lp))
-    d=degrees(s)
+    d=0
     w.writerow(['','','','',''])
     w.writerow(['','','','',''])
     w.writerow(['','','','',''])
     courses(s,d)
     n=2
 
-    while n <20 :
+    while n < lp:
      url = urlg(query,n)
+     print("URL generated")
      r=requests.get(url)
+     print('requests done')
      s=BeautifulSoup(r.text,'lxml')
+     print("BeautifulSoup done ")
      courses(s,d)
      n=n+1
      print('\n')

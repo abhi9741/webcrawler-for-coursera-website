@@ -4,10 +4,9 @@ import csv
 import time
 
 def urlg(query,pageno):
-
-
         p=pageno-1
-        return "https://www.coursera.org/courses?languages=en&query="+query+"&start=" + str(p*20) +"&userQuery="+query
+        #return "https://www.coursera.org/courses?languages=en&query="+query+"&start=" + str(p*20) +"&userQuery="+query
+        return "https://www.coursera.org/courses?_facet_changed_=true&query="+query+"&start=" + str(p*20)
 
 def lastpage(s):
     ss=s.find('div',"pagination-controls-container")

@@ -43,8 +43,8 @@ def courses(s1,d,l,n) :
             return
             #print(str(sss)+'\n')
         #print(str(len(sss))+'\n')
-        del(sss[0:9])
-        del(sss[0])
+        del(sss[0:4])
+        #del(sss[0])
         d=int(d)*7
         #print(str(d)+'\n')
         #del(sss[0:d])
@@ -140,7 +140,12 @@ with open(query+'course details.csv','w') as outputfile :
     print(l1)
     print(len(l1))
     print("-----------------------------")
-    while len(l1)!=0:
+    if len(l1)!=0:
+        #sleep(100)
+        l1=correction(l1)
+        print(l1)
+        print(len(l1))
+    if len(l1)!=0:
         #sleep(100)
         l1=correction(l1)
         print(l1)

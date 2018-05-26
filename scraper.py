@@ -315,7 +315,7 @@ with open(query+'course details.csv','w') as outputfile :
     browser.get(url)#"?action=enroll&authMode=login"
     username = browser.find_element_by_id("emailInput-input") #username form field
     password = browser.find_element_by_id("passwordInput-input") #password form field
-    username.send_keys('abhinavreddynimma1@gmail.com')
+    username.send_keys('********************')
     password.send_keys('*********')
     button = browser.find_element_by_css_selector('.Button_clbp6a-o_O-primary_cv02ee-o_O-md_1jvotax.w-100')
     button.click()
